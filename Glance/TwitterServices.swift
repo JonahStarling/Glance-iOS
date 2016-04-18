@@ -1,5 +1,5 @@
 //
-//  Instagram.swift
+//  TwitterServices.swift
 //  Glance
 //
 //  Created by Jonah Starling on 4/14/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Instagram {
+class TwitterServices {
     var accessToken: String
     
     init(accessToken: String) {
@@ -18,13 +18,11 @@ class Instagram {
     func getBestFriends() {
         //Get best friends
         //
-        //Loop through the last 100 posts
+        //Loop through the last 500 posts
         //Get a count of likes per user
         //Get top ten
         //Create Friend Objects for them
         //Load them to the firebase database
-        //
-        //API CALL: /users/self/media/liked
     }
     
     func getRelevantPosts(nextPage: String) -> String {

@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="254"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6yY-Vg-NVY" id="7h2-fw-HHi">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="254"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="253.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7qq-8d-wD5">
@@ -253,7 +253,7 @@
                                                 <rect key="frame" x="0.0" y="92" width="600" height="91"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lhg-Oy-sJT" id="PYn-Es-Iw7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="90.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="91"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hB2-Vb-8Fv">
@@ -313,11 +313,29 @@
                                             <action selector="connectInstagramAccount:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="PkP-IR-4IX"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="380-26-7Cr">
+                                        <rect key="frame" x="215" y="267" width="170" height="30"/>
+                                        <state key="normal" title="Connect Twitter Account"/>
+                                        <connections>
+                                            <action selector="connectTwitterAccount:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="hwu-T3-ocN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vh-Dg-69F">
+                                        <rect key="frame" x="205" y="191" width="190" height="30"/>
+                                        <state key="normal" title="Connect Facebook Account"/>
+                                        <connections>
+                                            <action selector="connectFacebookAccount:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="nS4-yv-QKn"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="qe1-CX-CUy" firstAttribute="centerY" secondItem="taw-hJ-ro8" secondAttribute="centerY" id="1Ys-X5-nZ3"/>
                                     <constraint firstItem="qe1-CX-CUy" firstAttribute="centerX" secondItem="taw-hJ-ro8" secondAttribute="centerX" id="CGP-O0-ji2"/>
+                                    <constraint firstItem="380-26-7Cr" firstAttribute="top" secondItem="qe1-CX-CUy" secondAttribute="bottom" constant="8" symbolic="YES" id="DXD-f7-1lr"/>
+                                    <constraint firstItem="3vh-Dg-69F" firstAttribute="centerX" secondItem="qe1-CX-CUy" secondAttribute="centerX" id="Lf7-G1-NnG"/>
+                                    <constraint firstItem="380-26-7Cr" firstAttribute="centerX" secondItem="qe1-CX-CUy" secondAttribute="centerX" id="PbX-1c-gIH"/>
+                                    <constraint firstItem="qe1-CX-CUy" firstAttribute="top" secondItem="3vh-Dg-69F" secondAttribute="bottom" constant="8" symbolic="YES" id="uIZ-91-t1B"/>
                                 </constraints>
                             </view>
                         </subviews>

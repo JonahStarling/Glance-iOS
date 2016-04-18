@@ -8,6 +8,7 @@
 
 import UIKit
 import OAuthSwift
+import TwitterKit
 
 class SecondViewController: UIViewController {
 
@@ -33,6 +34,14 @@ class SecondViewController: UIViewController {
         accountNotAddedView.hidden = accountAdded
     }
     
+    @IBAction func connectFacebookAccount(sender: UIButton) {
+        oauthFacebook()
+    }
+    
+    func oauthFacebook() {
+        //Add OAuth2.0 Code for Facebook
+    }
+    
     @IBAction func connectInstagramAccount(sender: UIButton) {
         oauthInstagram()
     }
@@ -55,6 +64,20 @@ class SecondViewController: UIViewController {
                 print(error.localizedDescription)
             }
         )
+    }
+    
+    @IBAction func connectTwitterAccount(sender: UIButton) {
+        oauthTwitter()
+    }
+    
+    func oauthTwitter() {
+        Twitter.sharedInstance().logInWithCompletion { session, error in
+            if (session != nil) {
+                print("signed in as \(session!.userName)");
+            } else {
+                print("error: \(error!.localizedDescription)");
+            }
+        }
     }
 }
 
