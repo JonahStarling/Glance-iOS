@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import TwitterKit
 
 class TwitterServices {
     var accessToken: String
+    
+    init() {
+        self.accessToken = ""
+    }
     
     init(accessToken: String) {
         self.accessToken = accessToken
@@ -46,5 +51,20 @@ class TwitterServices {
         //Save the best friends list to the firebase database
         //
         //Pretty self explanatory
+    }
+    
+    func twitterAccountNotConnected() -> Bool {
+        //Add code to check firebase to see if connected yet
+        return true
+    }
+    
+    func oauthTwitter() {
+        Twitter.sharedInstance().logInWithCompletion { session, error in
+            if (session != nil) {
+                print("signed in as \(session!.userName)");
+            } else {
+                print("error: \(error!.localizedDescription)");
+            }
+        }
     }
 }

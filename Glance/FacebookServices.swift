@@ -1,15 +1,14 @@
 //
-//  InstagramServices.swift
+//  FacebookServices.swift
 //  Glance
 //
-//  Created by Jonah Starling on 4/14/16.
+//  Created by Jonah Starling on 4/25/16.
 //  Copyright © 2016 In The Belly. All rights reserved.
 //
 
 import Foundation
-import OAuthSwift
 
-class InstagramServices {
+class FacebookServices {
     var accessToken: String
     
     init() {
@@ -23,13 +22,11 @@ class InstagramServices {
     func getBestFriends() {
         //Get best friends
         //
-        //Loop through the last 100 posts
+        //Loop through the last 500 posts
         //Get a count of likes per user
         //Get top ten
         //Create Friend Objects for them
         //Load them to the firebase database
-        //
-        //API CALL: /users/self/media/liked
     }
     
     func getRelevantPosts(nextPage: String) -> String {
@@ -55,28 +52,12 @@ class InstagramServices {
         //Pretty self explanatory
     }
     
-    func instagramAccountNotConnected() -> Bool {
+    func facebookAccountNotConnected() -> Bool {
         //Add code to check firebase to see if connected yet
         return true
     }
     
-    func oauthInstagram(view: UIViewController) {
-        let oauthswift = OAuth2Swift(
-            consumerKey:    "9c239d8d8a92482caa7d11b639f85600",
-            consumerSecret: "b4ebc73b26724c779b74b50303912683",
-            authorizeUrl:   "https://api.instagram.com/oauth/authorize",
-            responseType:   "token"
-        )
-        oauthswift.authorize_url_handler = SafariURLHandler(viewController: view)
-        oauthswift.authorizeWithCallbackURL(
-            NSURL(string: "Glance://oauth-callback/instagram")!,
-            scope: "likes+comments", state:"INSTAGRAM",
-            success: { credential, response, parameters in
-                print(credential.oauth_token)
-            },
-            failure: { error in
-                print(error.localizedDescription)
-            }
-        )
+    func oauthFacebook() {
+        //Add OAuth2.0 Code for Facebook
     }
 }
