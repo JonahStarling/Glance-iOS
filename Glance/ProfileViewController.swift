@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  ProfileViewController.swift
 //  Glance
 //
 //  Created by Jonah Starling on 1/9/16.
@@ -10,7 +10,7 @@ import UIKit
 import OAuthSwift
 import TwitterKit
 
-class SecondViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
     @IBOutlet var accountNotAddedView: UIView!
     @IBOutlet var accountAddedView: UIView!
@@ -20,8 +20,12 @@ class SecondViewController: UIViewController {
         //var accountAdded: Bool
         let accountAdded = false
         setAccountManagementView(accountAdded)
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.barStyle = .Black
     }
     
     override func didReceiveMemoryWarning() {

@@ -1,6 +1,10 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## Firebase
+
+https://www.firebase.com/terms/terms-of-service.html
+
 ## OAuthSwift
 
 Copyright (c) 2014 Dongri Jin <dongriat@gmail.com>
