@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
 
@@ -38,7 +39,9 @@ class ProfileViewController: UIViewController {
         if (instagramService.instagramAccountNotConnected()) {
             instagramService.oauthInstagram(self)
         } else {
+            instagramService.getBestFriends()
             //Send user to account management page for Instagram
+            performSegueWithIdentifier("AccountManagementSegue", sender: self)
         }
     }
     
@@ -48,6 +51,7 @@ class ProfileViewController: UIViewController {
             twitterService.oauthTwitter()
         } else {
             //Send user to account management page for Twitter
+            performSegueWithIdentifier("AccountManagementSegue", sender: self)
         }
     }
 }

@@ -4,4 +4,5 @@ use_frameworks!
 target 'Glance' do
   pod 'OAuthSwift', '~> 0.5.2'
   pod 'Firebase', '>= 2.5.1'
+  pod 'SwiftyJSON', '~> 2.3.2'
 end

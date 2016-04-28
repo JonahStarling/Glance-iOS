@@ -8,6 +8,7 @@
 
 import Foundation
 import TwitterKit
+import Firebase
 
 class TwitterServices {
     var accessToken: String
@@ -54,7 +55,10 @@ class TwitterServices {
     }
     
     func twitterAccountNotConnected() -> Bool {
-        //Add code to check firebase to see if connected yet
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.stringForKey("twitterOAuthToken") != nil {
+            return false
+        }
         return true
     }
     
@@ -62,6 +66,8 @@ class TwitterServices {
         Twitter.sharedInstance().logInWithCompletion { session, error in
             if (session != nil) {
                 print("signed in as \(session!.userName)");
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.setObject(session!.authToken, forKey: "twitterOAuthToken")
             } else {
                 print("error: \(error!.localizedDescription)");
             }

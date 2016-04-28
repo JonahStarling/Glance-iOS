@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Firebase
+import FBSDKLoginKit
 
 class FacebookServices {
     var accessToken: String
@@ -58,6 +60,16 @@ class FacebookServices {
     }
     
     func oauthFacebook() {
-        //Add OAuth2.0 Code for Facebook
+        let facebookLogin = FBSDKLoginManager()
+        facebookLogin.logInWithReadPermissions(["email"], handler: {
+            (facebookResult, facebookError) -> Void in
+            if facebookError != nil {
+                print("Facebook login failed. Error \(facebookError)")
+            } else if facebookResult.isCancelled {
+                print("Facebook login was cancelled.")
+            } else {
+                //let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
+            }
+        })
     }
 }

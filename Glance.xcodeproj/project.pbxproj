@@ -17,6 +17,9 @@
 		8CA4C87E1CC13C22002AEAAE /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8CA4C87A1CC13C21002AEAAE /* TwitterKitResources.bundle */; };
 		8CA4C87F1CC13C22002AEAAE /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA4C87B1CC13C21002AEAAE /* TwitterCore.framework */; };
 		8CC80F571CCEC9AB00BAC11F /* FacebookServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC80F561CCEC9AB00BAC11F /* FacebookServices.swift */; };
+		8CC80F5B1CCED29C00BAC11F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC80F581CCED29C00BAC11F /* FBSDKCoreKit.framework */; };
+		8CC80F5C1CCED29C00BAC11F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC80F591CCED29C00BAC11F /* FBSDKLoginKit.framework */; };
+		8CC80F5D1CCED29C00BAC11F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC80F5A1CCED29C00BAC11F /* FBSDKShareKit.framework */; };
 		8CD17CA71C41C807004402FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD17CA61C41C807004402FC /* AppDelegate.swift */; };
 		8CD17CA91C41C807004402FC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD17CA81C41C807004402FC /* HomeViewController.swift */; };
 		8CD17CAB1C41C807004402FC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD17CAA1C41C807004402FC /* ProfileViewController.swift */; };
@@ -77,6 +80,41 @@
 			remoteGlobalIDString = C4D50DF71BFB693F0053B624;
 			remoteInfo = OAuthSwiftTests;
 		};
+		8CC80F6E1CCEF22B00BAC11F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CC80F5F1CCEF22B00BAC11F /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B300C1F1944AA1A00993175;
+			remoteInfo = SwifterDemoiOS;
+		};
+		8CC80F701CCEF22B00BAC11F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CC80F5F1CCEF22B00BAC11F /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B9F50EE1944A5AB00894629;
+			remoteInfo = SwifteriOS;
+		};
+		8CC80F721CCEF22B00BAC11F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CC80F5F1CCEF22B00BAC11F /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B9F51131944A61D00894629;
+			remoteInfo = SwifterMac;
+		};
+		8CC80F741CCEF22B00BAC11F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CC80F5F1CCEF22B00BAC11F /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B300C471944AECB00993175;
+			remoteInfo = SwifterDemoMac;
+		};
+		8CC80F761CCEF22B00BAC11F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CC80F5F1CCEF22B00BAC11F /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F6B4D5751C7BAC4500E06514;
+			remoteInfo = SwifterTests;
+		};
 		8CD17CBA1C41C807004402FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8CD17C9B1C41C807004402FC /* Project object */;
@@ -105,6 +143,10 @@
 		8CA4C87A1CC13C21002AEAAE /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		8CA4C87B1CC13C21002AEAAE /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		8CC80F561CCEC9AB00BAC11F /* FacebookServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookServices.swift; sourceTree = "<group>"; };
+		8CC80F581CCED29C00BAC11F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../Documents/FacebookSDK/FacebookSDKs-iOS-20160412/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		8CC80F591CCED29C00BAC11F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../Documents/FacebookSDK/FacebookSDKs-iOS-20160412/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		8CC80F5A1CCED29C00BAC11F /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../../Documents/FacebookSDK/FacebookSDKs-iOS-20160412/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		8CC80F5F1CCEF22B00BAC11F /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = "../../../../Downloads/Swifter-master/Swifter.xcodeproj"; sourceTree = "<group>"; };
 		8CD17CA31C41C807004402FC /* Glance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CD17CA61C41C807004402FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CD17CA81C41C807004402FC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -128,7 +170,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CC80F5B1CCED29C00BAC11F /* FBSDKCoreKit.framework in Frameworks */,
 				8CA4C87C1CC13C21002AEAAE /* Fabric.framework in Frameworks */,
+				8CC80F5C1CCED29C00BAC11F /* FBSDKLoginKit.framework in Frameworks */,
+				8CC80F5D1CCED29C00BAC11F /* FBSDKShareKit.framework in Frameworks */,
 				8CA4C87F1CC13C22002AEAAE /* TwitterCore.framework in Frameworks */,
 				8CA4C87D1CC13C22002AEAAE /* TwitterKit.framework in Frameworks */,
 				3D118F7A730B8E7C297DFBAB /* Pods_Glance.framework in Frameworks */,
@@ -183,14 +228,30 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8CC80F601CCEF22B00BAC11F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8CC80F6F1CCEF22B00BAC11F /* SwifterDemoiOS.app */,
+				8CC80F711CCEF22B00BAC11F /* SwifteriOS.framework */,
+				8CC80F731CCEF22B00BAC11F /* SwifterMac.framework */,
+				8CC80F751CCEF22B00BAC11F /* SwifterDemoMac.app */,
+				8CC80F771CCEF22B00BAC11F /* SwifterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8CD17C9A1C41C807004402FC = {
 			isa = PBXGroup;
 			children = (
+				8CC80F5F1CCEF22B00BAC11F /* Swifter.xcodeproj */,
 				8CA4C8571CC02713002AEAAE /* OAuthSwift.xcodeproj */,
 				8CD17CA51C41C807004402FC /* Glance */,
 				8CD17CBC1C41C807004402FC /* GlanceTests */,
 				8CD17CC71C41C807004402FC /* GlanceUITests */,
 				8CD17CA41C41C807004402FC /* Products */,
+				8CC80F581CCED29C00BAC11F /* FBSDKCoreKit.framework */,
+				8CC80F591CCED29C00BAC11F /* FBSDKLoginKit.framework */,
+				8CC80F5A1CCED29C00BAC11F /* FBSDKShareKit.framework */,
 				8CA4C8781CC13C21002AEAAE /* Fabric.framework */,
 				8CA4C87B1CC13C21002AEAAE /* TwitterCore.framework */,
 				8CA4C8791CC13C21002AEAAE /* TwitterKit.framework */,
@@ -346,6 +407,10 @@
 					ProductGroup = 8CA4C8581CC02713002AEAAE /* Products */;
 					ProjectRef = 8CA4C8571CC02713002AEAAE /* OAuthSwift.xcodeproj */;
 				},
+				{
+					ProductGroup = 8CC80F601CCEF22B00BAC11F /* Products */;
+					ProjectRef = 8CC80F5F1CCEF22B00BAC11F /* Swifter.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -404,6 +469,41 @@
 			fileType = wrapper.cfbundle;
 			path = OAuthSwiftTests.xctest;
 			remoteRef = 8CA4C86D1CC02713002AEAAE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8CC80F6F1CCEF22B00BAC11F /* SwifterDemoiOS.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwifterDemoiOS.app;
+			remoteRef = 8CC80F6E1CCEF22B00BAC11F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8CC80F711CCEF22B00BAC11F /* SwifteriOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwifteriOS.framework;
+			remoteRef = 8CC80F701CCEF22B00BAC11F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8CC80F731CCEF22B00BAC11F /* SwifterMac.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwifterMac.framework;
+			remoteRef = 8CC80F721CCEF22B00BAC11F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8CC80F751CCEF22B00BAC11F /* SwifterDemoMac.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwifterDemoMac.app;
+			remoteRef = 8CC80F741CCEF22B00BAC11F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8CC80F771CCEF22B00BAC11F /* SwifterTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwifterTests.xctest;
+			remoteRef = 8CC80F761CCEF22B00BAC11F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -653,6 +753,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/Jonah/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = Glance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -669,6 +770,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/Jonah/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = Glance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

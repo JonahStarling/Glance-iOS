@@ -8,28 +8,80 @@
 
 import Foundation
 import OAuthSwift
+import SwiftyJSON
+import Firebase
 
 class InstagramServices {
     var accessToken: String
+    var userId: String
+    var userName: String
     
     init() {
         self.accessToken = ""
+        self.userId = ""
+        self.userName = ""
     }
     
-    init(accessToken: String) {
+    init(accessToken: String, userId: String, userName: String) {
         self.accessToken = accessToken
+        self.userId = userId
+        self.userName = userName
     }
     
     func getBestFriends() {
-        //Get best friends
-        //
-        //Loop through the last 100 posts
-        //Get a count of likes per user
-        //Get top ten
-        //Create Friend Objects for them
-        //Load them to the firebase database
-        //
-        //API CALL: /users/self/media/liked
+        var todoEndpoint: String = "https://api.instagram.com/v1/users/self/media/liked/?access_token="
+        todoEndpoint += accessToken
+        let url = NSURL(string: todoEndpoint)
+        let urlRequest = NSURLRequest(URL: url!)
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: config)
+        let task = session.dataTaskWithRequest(urlRequest) {
+            (data, response, error) in
+            // check for any errors
+            guard error == nil else {
+                print("error calling GET on INSTAGRAM/v1/users/self/media/liked/")
+                print(error)
+                return
+            }
+            // make sure we got data
+            guard let responseData = data else {
+                print("Error: did not receive data from INSTAGRAM/v1/users/self/media/liked/")
+                return
+            }
+            // parse the result as JSON, since that's what the API provides
+            let json = JSON(data: responseData)
+            var bestFriends = [[String:String]]()
+            if let items = json["data"].array {
+                for item in items {
+                    var foundInArray: Bool = false
+                    let bestFriend = ["userId": self.userId,
+                                      "userName": self.userName,
+                                      "bestFriendId": item["user"]["id"].stringValue,
+                                      "bestFriendName": item["user"]["username"].stringValue,
+                                      "bestFriendScore": "1"]
+                    var i = 0
+                    for var friend in bestFriends {
+                        let friendId = friend["bestFriendId"]
+                        if (friendId == item["user"]["id"].stringValue) {
+                            var score = Int(friend["bestFriendScore"]!)
+                            score = score! + 1
+                            bestFriends[i].updateValue(String(score!), forKey: "bestFriendScore")
+                            foundInArray = true
+                        }
+                        i+=1
+                    }
+                    if (foundInArray == false) {
+                        bestFriends.append(bestFriend)
+                    }
+                }
+            }
+            // TODO: Add code to filter the bestFriends Array down to the top ten
+            for bestFriend in bestFriends {
+                let ref = Firebase(url: "https://theglance.firebaseio.com/bestfriendsinstagram/"+self.userId)
+                ref.childByAppendingPath(bestFriend["bestFriendId"]).setValue(bestFriend)
+            }
+        }
+        task.resume()
     }
     
     func getRelevantPosts(nextPage: String) -> String {
@@ -50,13 +102,47 @@ class InstagramServices {
     }
     
     func saveBestFriendsToDB() {
-        //Save the best friends list to the firebase database
-        //
-        //Pretty self explanatory
+    }
+    
+    func getUsersInfo() {
+        var todoEndpoint: String = "https://api.instagram.com/v1/users/self/?access_token="
+        todoEndpoint += accessToken
+        let url = NSURL(string: todoEndpoint)
+        let urlRequest = NSURLRequest(URL: url!)
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: config)
+        let task = session.dataTaskWithRequest(urlRequest) {
+            (data, response, error) in
+            // check for any errors
+            guard error == nil else {
+                print("error calling GET on INSTAGRAM/v1/users/self/")
+                print(error)
+                return
+            }
+            // make sure we got data
+            guard let responseData = data else {
+                print("Error: did not receive data from INSTAGRAM/v1/users/self/")
+                return
+            }
+            // parse the result as JSON, since that's what the API provides
+            let json = JSON(data: responseData)
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setObject(json["data"]["id"].stringValue, forKey: "instagramUserId")
+            defaults.setObject(json["data"]["username"].stringValue, forKey: "instagramUserName")
+            self.userId = json["data"]["id"].stringValue
+            self.userName = json["data"]["username"].stringValue
+        }
+        task.resume()
     }
     
     func instagramAccountNotConnected() -> Bool {
-        //Add code to check firebase to see if connected yet
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.stringForKey("instagramOAuthToken") != nil {
+            self.accessToken = defaults.stringForKey("instagramOAuthToken")!
+            self.userId = defaults.stringForKey("instagramUserId")!
+            self.userName = defaults.stringForKey("instagramUserName")!
+            return false
+        }
         return true
     }
     
@@ -70,9 +156,13 @@ class InstagramServices {
         oauthswift.authorize_url_handler = SafariURLHandler(viewController: view)
         oauthswift.authorizeWithCallbackURL(
             NSURL(string: "Glance://oauth-callback/instagram")!,
-            scope: "likes+comments", state:"INSTAGRAM",
+            scope: "basic+likes+comments+public_content", state:"INSTAGRAM",
             success: { credential, response, parameters in
-                print(credential.oauth_token)
+                //STORE OAUTH TOKEN ON THE PHONE
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.setObject(credential.oauth_token, forKey: "instagramOAuthToken")
+                self.accessToken = credential.oauth_token
+                self.getUsersInfo()
             },
             failure: { error in
                 print(error.localizedDescription)
