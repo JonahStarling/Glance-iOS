@@ -9,22 +9,22 @@
 import Foundation
 
 class Friend {
-    var postType: String
+    var friendType: String
     var userName: String
     var userHandle: String
     var userPic: String
     
     // Default Initializer
     init() {
-        self.postType = ""
+        self.friendType = ""
         self.userName = "User"
         self.userHandle = "@User"
         self.userPic = ""
     }
     
     // Full Initializer
-    init(postType: String, userName: String, userHandle: String, userPic: String) {
-        self.postType = postType
+    init(friendType: String, userName: String, userHandle: String, userPic: String) {
+        self.friendType = friendType
         if (userName == "") {
             self.userName = userHandle
         } else {
@@ -35,13 +35,13 @@ class Friend {
     }
     
     // Get Functions
-    func getPostType() -> String { return self.postType }
+    func getFriendType() -> String { return self.friendType }
     func getUserName() -> String { return self.userName }
     func getUserHandle() -> String { return self.userHandle }
     func getUserPic() -> String { return self.userPic }
     
     // Set Functions
-    func setPostType(postType: String) { self.postType = postType }
+    func setFriendType(friendType: String) { self.friendType = friendType }
     func setUserName(userName: String) { self.userName = userName }
     func setUserHandle(userHandle: String) { self.userHandle = userHandle }
     func setUserPic(userPic: String) { self.userPic = userPic }

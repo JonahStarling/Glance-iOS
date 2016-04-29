@@ -57,7 +57,9 @@ class InstagramServices {
                     let bestFriend = ["userId": self.userId,
                                       "userName": self.userName,
                                       "bestFriendId": item["user"]["id"].stringValue,
-                                      "bestFriendName": item["user"]["username"].stringValue,
+                                      "bestFriendName": item["user"]["full_name"].stringValue,
+                                      "bestFriendHandle": item["user"]["username"].stringValue,
+                                      "bestFriendProfilePicture": item["user"]["profile_picture"].stringValue,
                                       "bestFriendScore": "1"]
                     var i = 0
                     for var friend in bestFriends {
@@ -77,6 +79,7 @@ class InstagramServices {
             }
             // TODO: Add code to filter the bestFriends Array down to the top ten
             self.saveBestFriendsToDB(bestFriends)
+            self.loadBestFriendsFromDB()
         }
         task.resume()
     }
@@ -89,13 +92,27 @@ class InstagramServices {
         //Otherwise get the most recent page
         //Go through posts and if post is by a best friend then create a post object
         //Add that post to the home page
+        
         return ""
     }
     
     func loadBestFriendsFromDB() {
-        //Load the best friends list from the firebase database
-        //
-        //Pretty self explanatory
+        var bestFriends: [Friend] = []
+        let ref = Firebase(url: "https://theglance.firebaseio.com/bestfriendsinstagram/"+self.userId)
+        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if snapshot.value is NSNull {
+                print("Instagram Call Load Best Friends From DB returned nothing!")
+            } else {
+                let enumerator = snapshot.children
+                while let friend = enumerator.nextObject() as? FDataSnapshot {
+                    let userName = friend.value["bestFriendName"] as? String
+                    let userHandle = friend.value["bestFriendHandle"] as? String
+                    let userPic = friend.value["bestFriendProfilePicture"] as? String
+                    bestFriends.append(Friend(friendType: "Instagram", userName: userName!, userHandle: userHandle!, userPic: userPic!))
+                }
+            }
+            // TODO: Send bestFriends array to the adapter to load into the Account Management View
+        })
     }
     
     func saveBestFriendsToDB(bestFriends: [[String : String]]) {
