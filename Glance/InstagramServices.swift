@@ -15,17 +15,20 @@ class InstagramServices {
     var accessToken: String
     var userId: String
     var userName: String
+    var bestFriends: [Friend]
     
     init() {
         self.accessToken = ""
         self.userId = ""
         self.userName = ""
+        self.bestFriends = []
     }
     
     init(accessToken: String, userId: String, userName: String) {
         self.accessToken = accessToken
         self.userId = userId
         self.userName = userName
+        self.bestFriends = []
     }
     
     func getBestFriends() {
@@ -79,21 +82,40 @@ class InstagramServices {
             }
             // TODO: Add code to filter the bestFriends Array down to the top ten
             self.saveBestFriendsToDB(bestFriends)
-            self.loadBestFriendsFromDB()
         }
         task.resume()
     }
     
-    func getRelevantPosts(nextPage: String) -> String {
-        //Get relevant posts
-        //
-        //If nextPage is not empty then
-        //Get the page using the nextPage String
-        //Otherwise get the most recent page
-        //Go through posts and if post is by a best friend then create a post object
-        //Add that post to the home page
-        
-        return ""
+    func getRelevantPosts() {
+        loadBestFriendsFromDB()
+        for bestFriend in bestFriends {
+            var todoEndpoint: String = "https://api.instagram.com/v1/users/"
+            todoEndpoint += bestFriend.getUserId()
+            todoEndpoint += "/media/recent/?access_token="
+            todoEndpoint += accessToken
+            let url = NSURL(string: todoEndpoint)
+            let urlRequest = NSURLRequest(URL: url!)
+            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+            let session = NSURLSession(configuration: config)
+            let task = session.dataTaskWithRequest(urlRequest) {
+                (data, response, error) in
+                // check for any errors
+                guard error == nil else {
+                    print("error calling GET on INSTAGRAM/v1/users/self/feed/")
+                    print(error)
+                    return
+                }
+                // make sure we got data
+                guard let responseData = data else {
+                    print("Error: did not receive data from INSTAGRAM/v1/users/self/feed/")
+                    return
+                }
+                // parse the result as JSON, since that's what the API provides
+                let json = JSON(data: responseData)
+                print(json)
+            }
+            task.resume()
+        }
     }
     
     func loadBestFriendsFromDB() {
@@ -106,12 +128,14 @@ class InstagramServices {
                 let enumerator = snapshot.children
                 while let friend = enumerator.nextObject() as? FDataSnapshot {
                     let userName = friend.value["bestFriendName"] as? String
+                    let userId = friend.value["bestFriendId"] as? String
                     let userHandle = friend.value["bestFriendHandle"] as? String
                     let userPic = friend.value["bestFriendProfilePicture"] as? String
-                    bestFriends.append(Friend(friendType: "Instagram", userName: userName!, userHandle: userHandle!, userPic: userPic!))
+                    bestFriends.append(Friend(friendType: "Instagram", userName: userName!, userId: userId!, userHandle: userHandle!, userPic: userPic!))
                 }
             }
             // TODO: Send bestFriends array to the adapter to load into the Account Management View
+            self.bestFriends = bestFriends
         })
     }
     

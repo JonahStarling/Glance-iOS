@@ -74,6 +74,7 @@ class ProfileViewController: UIViewController {
             updateInstagramAccountButtonStatus()
         } else {
             self.instagramService.getBestFriends()
+            self.instagramService.getRelevantPosts()
             //Send user to account management page for Instagram
             performSegueWithIdentifier("AccountManagementSegue", sender: self)
         }
