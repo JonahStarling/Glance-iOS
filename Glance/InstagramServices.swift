@@ -76,10 +76,7 @@ class InstagramServices {
                 }
             }
             // TODO: Add code to filter the bestFriends Array down to the top ten
-            for bestFriend in bestFriends {
-                let ref = Firebase(url: "https://theglance.firebaseio.com/bestfriendsinstagram/"+self.userId)
-                ref.childByAppendingPath(bestFriend["bestFriendId"]).setValue(bestFriend)
-            }
+            self.saveBestFriendsToDB(bestFriends)
         }
         task.resume()
     }
@@ -101,7 +98,11 @@ class InstagramServices {
         //Pretty self explanatory
     }
     
-    func saveBestFriendsToDB() {
+    func saveBestFriendsToDB(bestFriends: [[String : String]]) {
+        for bestFriend in bestFriends {
+            let ref = Firebase(url: "https://theglance.firebaseio.com/bestfriendsinstagram/"+self.userId)
+            ref.childByAppendingPath(bestFriend["bestFriendId"]).setValue(bestFriend)
+        }
     }
     
     func getUsersInfo() {

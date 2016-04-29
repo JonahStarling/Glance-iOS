@@ -55,7 +55,7 @@ class FacebookServices {
     }
     
     func facebookAccountNotConnected() -> Bool {
-        //Add code to check firebase to see if connected yet
+        //Add code to check if connected yet
         return true
     }
     

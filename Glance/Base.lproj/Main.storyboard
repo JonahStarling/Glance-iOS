@@ -248,37 +248,37 @@
                                     <constraint firstAttribute="height" constant="100" id="QM6-g2-8co"/>
                                     <constraint firstAttribute="width" constant="100" id="eTM-YZ-3KG"/>
                                 </constraints>
-                                <state key="normal" image="RedditFilledBlue"/>
+                                <state key="normal" image="RedditFilledGrey"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtH-Lj-pnQ" userLabel="MyspaceButton">
                                 <rect key="frame" x="142" y="288" width="100" height="100"/>
-                                <state key="normal" image="MyspaceFilledBlue"/>
+                                <state key="normal" image="MyspaceFilledGrey"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlh-uE-dso" userLabel="GooglePlusButton">
                                 <rect key="frame" x="142" y="180" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="xTq-dJ-iC9"/>
                                 </constraints>
-                                <state key="normal" image="GooglePlusFilledBlue"/>
+                                <state key="normal" image="GooglePlusFilledGrey"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I73-KP-bem" userLabel="FoursquareButton">
                                 <rect key="frame" x="250" y="180" width="100" height="100"/>
-                                <state key="normal" image="FoursquareFilledBlue"/>
+                                <state key="normal" image="FoursquareFilledGrey"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZa-Ci-4gY" userLabel="TumblrButton">
                                 <rect key="frame" x="358" y="288" width="100" height="100"/>
-                                <state key="normal" image="TumblrFilledBlue"/>
+                                <state key="normal" image="TumblrFilledGrey"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4YN-oY-zNA" userLabel="PinterestButton">
                                 <rect key="frame" x="358" y="180" width="100" height="100"/>
-                                <state key="normal" image="PinterestFilledBlue"/>
+                                <state key="normal" image="PinterestFilledGrey"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuH-XQ-hsX" userLabel="InstagramButton">
                                 <rect key="frame" x="250" y="72" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="2g2-3Y-ain"/>
                                 </constraints>
-                                <state key="normal" image="InstagramFilledBlue"/>
+                                <state key="normal" image="InstagramFilledGrey"/>
                                 <connections>
                                     <action selector="connectInstagramAccount:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="hpZ-NY-V8G"/>
                                 </connections>
@@ -289,7 +289,7 @@
                                     <constraint firstAttribute="width" constant="100" id="FHZ-Nf-C14"/>
                                     <constraint firstAttribute="height" constant="100" id="qj7-sp-6vC"/>
                                 </constraints>
-                                <state key="normal" image="TwitterFilledBlue"/>
+                                <state key="normal" image="TwitterFilledGrey"/>
                                 <connections>
                                     <action selector="connectTwitterAccount:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="bX4-uJ-oNX"/>
                                 </connections>
@@ -299,7 +299,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="US2-RE-fHM"/>
                                 </constraints>
-                                <state key="normal" image="FacebookFilledBlue"/>
+                                <state key="normal" image="FacebookFilledGrey"/>
                                 <connections>
                                     <action selector="connectFacebookAccount:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="PcA-Ap-q8l"/>
                                 </connections>
@@ -310,7 +310,7 @@
                                     <constraint firstAttribute="height" constant="100" id="I6I-47-MzB"/>
                                     <constraint firstAttribute="width" constant="100" id="lds-b4-6cD"/>
                                 </constraints>
-                                <state key="normal" image="LinkedInFilledBlue"/>
+                                <state key="normal" image="LinkedInFilledGrey"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -353,6 +353,16 @@
                     <navigationItem key="navigationItem" title="Accounts" id="9jA-UM-Sn3"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="facebookButton" destination="zFy-sA-NT5" id="8TL-sg-jzF"/>
+                        <outlet property="foursquareButton" destination="I73-KP-bem" id="Ksa-C7-Ghp"/>
+                        <outlet property="googlePlusButton" destination="qlh-uE-dso" id="cGm-Sd-goV"/>
+                        <outlet property="instagramButton" destination="zuH-XQ-hsX" id="Z70-cJ-uIX"/>
+                        <outlet property="linkedInButton" destination="yQt-D9-QsE" id="aSk-1g-ohY"/>
+                        <outlet property="myspaceButton" destination="WtH-Lj-pnQ" id="ViO-Gd-eAt"/>
+                        <outlet property="pinterestButton" destination="4YN-oY-zNA" id="50C-Z4-fFd"/>
+                        <outlet property="redditButton" destination="BK3-0D-0I0" id="P2f-Ys-AWx"/>
+                        <outlet property="tumblrButton" destination="DZa-Ci-4gY" id="AcG-44-1OS"/>
+                        <outlet property="twitterButton" destination="UUM-RB-klu" id="01d-Na-rW1"/>
                         <segue destination="3Kp-B4-jTy" kind="show" identifier="AccountManagementSegue" id="lJw-ZE-ezs"/>
                     </connections>
                 </viewController>
@@ -360,10 +370,10 @@
             </objects>
             <point key="canvasLocation" x="1952" y="360"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--View Controller-->
         <scene sceneID="Wkt-wd-B6Y">
             <objects>
-                <viewController id="3Kp-B4-jTy" customClass="ProfileViewController" customModule="Glance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3Kp-B4-jTy" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Igw-kH-9pq"/>
                         <viewControllerLayoutGuide type="bottom" id="p1V-AK-zxD"/>
@@ -380,7 +390,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9n8-aT-v1l">
-                                                <rect key="frame" x="0.0" y="28" width="600" height="91"/>
+                                                <rect key="frame" x="0.0" y="92" width="600" height="91"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9n8-aT-v1l" id="lpE-Ik-c3B">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="90.5"/>
@@ -494,18 +504,18 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FacebookFilledBlue" width="75" height="75"/>
-        <image name="FoursquareFilledBlue" width="75" height="75"/>
-        <image name="GooglePlusFilledBlue" width="75" height="75"/>
+        <image name="FacebookFilledGrey" width="75" height="75"/>
+        <image name="FoursquareFilledGrey" width="75" height="75"/>
+        <image name="GooglePlusFilledGrey" width="75" height="75"/>
         <image name="Instagram" width="38" height="38"/>
-        <image name="InstagramFilledBlue" width="75" height="75"/>
-        <image name="LinkedInFilledBlue" width="75" height="75"/>
-        <image name="MyspaceFilledBlue" width="75" height="75"/>
-        <image name="PinterestFilledBlue" width="75" height="75"/>
-        <image name="RedditFilledBlue" width="75" height="75"/>
-        <image name="TumblrFilledBlue" width="75" height="75"/>
+        <image name="InstagramFilledGrey" width="75" height="75"/>
+        <image name="LinkedInFilledGrey" width="75" height="75"/>
+        <image name="MyspaceFilledGrey" width="75" height="75"/>
+        <image name="PinterestFilledGrey" width="75" height="75"/>
+        <image name="RedditFilledGrey" width="75" height="75"/>
+        <image name="TumblrFilledGrey" width="75" height="75"/>
         <image name="Twitter" width="38" height="38"/>
-        <image name="TwitterFilledBlue" width="75" height="75"/>
+        <image name="TwitterFilledGrey" width="75" height="75"/>
         <image name="first" width="30" height="30"/>
         <image name="userMale" width="38" height="38"/>
     </resources>
