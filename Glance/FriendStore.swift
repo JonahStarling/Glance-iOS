@@ -30,4 +30,12 @@ class FriendStore {
         allFriends.removeAll()
     }
     
+    func getCount() -> Int {
+        return allFriends.count
+    }
+    
+    func getFriendAt(index: Int) -> Friend {
+        return allFriends[index]
+    }
+    
 }

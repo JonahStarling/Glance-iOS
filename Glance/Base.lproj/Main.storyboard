@@ -378,46 +378,67 @@
                         <outlet property="redditButton" destination="BK3-0D-0I0" id="P2f-Ys-AWx"/>
                         <outlet property="tumblrButton" destination="DZa-Ci-4gY" id="AcG-44-1OS"/>
                         <outlet property="twitterButton" destination="UUM-RB-klu" id="01d-Na-rW1"/>
-                        <segue destination="3SA-yw-mbu" kind="show" id="rev-Ci-lJ8"/>
+                        <segue destination="3SA-yw-mbu" kind="show" identifier="AccountManagementSegue" id="rev-Ci-lJ8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1856" y="360"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Account View Controller-->
         <scene sceneID="huq-2p-RSK">
             <objects>
-                <tableViewController id="3SA-yw-mbu" sceneMemberID="viewController">
+                <tableViewController id="3SA-yw-mbu" customClass="AccountViewController" customModule="Glance" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="119" sectionHeaderHeight="28" sectionFooterHeight="28" id="9ZG-o0-LBJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="CUN-pY-YlH">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="75" id="CUN-pY-YlH" customClass="FriendCell" customModule="Glance" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CUN-pY-YlH" id="wHm-df-CEU">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="74.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kcd-rf-WxG">
-                                            <rect key="frame" x="8" y="8" width="58.5" height="58.5"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kcd-rf-WxG">
+                                            <rect key="frame" x="8" y="8" width="59" height="59"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="59" id="Eg5-KU-jQ2"/>
+                                                <constraint firstAttribute="width" constant="59" id="KkT-7V-BZq"/>
+                                                <constraint firstAttribute="width" secondItem="kcd-rf-WxG" secondAttribute="height" multiplier="1:1" id="hS4-5Z-Ys8"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@UserHandle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVf-Lr-g3O">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@UserHandle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVf-Lr-g3O">
                                             <rect key="frame" x="74" y="45" width="518" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qtk-xF-j92">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qtk-xF-j92">
                                             <rect key="frame" x="74" y="8" width="518" height="29"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Qtk-xF-j92" firstAttribute="leading" secondItem="kcd-rf-WxG" secondAttribute="trailing" constant="7" id="5Yu-55-lwO"/>
+                                        <constraint firstItem="Qtk-xF-j92" firstAttribute="leading" secondItem="pVf-Lr-g3O" secondAttribute="leading" id="9Ra-LN-YGl"/>
+                                        <constraint firstItem="kcd-rf-WxG" firstAttribute="leading" secondItem="wHm-df-CEU" secondAttribute="leadingMargin" id="B76-Mw-5d7"/>
+                                        <constraint firstItem="pVf-Lr-g3O" firstAttribute="top" secondItem="Qtk-xF-j92" secondAttribute="bottom" constant="8" symbolic="YES" id="Jsf-vN-gYW"/>
+                                        <constraint firstItem="kcd-rf-WxG" firstAttribute="top" secondItem="Qtk-xF-j92" secondAttribute="top" id="Ker-xM-6ZV"/>
+                                        <constraint firstItem="kcd-rf-WxG" firstAttribute="top" secondItem="wHm-df-CEU" secondAttribute="topMargin" id="VnV-s9-6Ay"/>
+                                        <constraint firstItem="kcd-rf-WxG" firstAttribute="centerY" secondItem="wHm-df-CEU" secondAttribute="centerY" id="YAb-nk-bPc"/>
+                                        <constraint firstItem="Qtk-xF-j92" firstAttribute="trailing" secondItem="pVf-Lr-g3O" secondAttribute="trailing" id="jrm-S2-OCZ"/>
+                                        <constraint firstItem="Qtk-xF-j92" firstAttribute="trailing" secondItem="wHm-df-CEU" secondAttribute="trailingMargin" id="xBj-tw-KDZ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="userFullName" destination="Qtk-xF-j92" id="L5w-MA-Yei"/>
+                                    <outlet property="userHandle" destination="pVf-Lr-g3O" id="1kM-s1-xjO"/>
+                                    <outlet property="userProfilePic" destination="kcd-rf-WxG" id="CGr-yA-WtA"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

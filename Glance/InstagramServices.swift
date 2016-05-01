@@ -163,7 +163,9 @@ class InstagramServices {
             }
             // TODO: Send bestFriends array to the adapter to load into the Account Management View
             self.bestFriends = bestFriends
+            FriendStore.sharedInstance.replaceAllFriends(bestFriends)
             NSNotificationCenter.defaultCenter().postNotificationName("getBestFriendsCompleteCallGetRelevantPosts", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("friendsLoaded", object: nil)
         })
     }
     

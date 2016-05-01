@@ -10,5 +10,8 @@ import UIKit
 
 class FriendCell: UITableViewCell {
     
+    @IBOutlet var userProfilePic: UIImageView!
+    @IBOutlet var userFullName: UILabel!
+    @IBOutlet var userHandle: UILabel!
     
 }

@@ -12,6 +12,7 @@
 		8C672C5A1CD536F500E0787F /* TwitterPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C672C591CD536F500E0787F /* TwitterPost.swift */; };
 		8C672C5C1CD53D2100E0787F /* PostStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C672C5B1CD53D2100E0787F /* PostStore.swift */; };
 		8C672C5E1CD53D2E00E0787F /* FriendStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C672C5D1CD53D2E00E0787F /* FriendStore.swift */; };
+		8C672C721CD5E23300E0787F /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C672C711CD5E23300E0787F /* FriendCell.swift */; };
 		8CA4C8331CB9AD22002AEAAE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA4C8321CB9AD22002AEAAE /* Post.swift */; };
 		8CA4C84F1CC01B5D002AEAAE /* InstagramServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA4C84E1CC01B5D002AEAAE /* InstagramServices.swift */; };
 		8CA4C8511CC01F0F002AEAAE /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA4C8501CC01F0F002AEAAE /* Friend.swift */; };
@@ -20,6 +21,7 @@
 		8CA4C87D1CC13C22002AEAAE /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA4C8791CC13C21002AEAAE /* TwitterKit.framework */; };
 		8CA4C87E1CC13C22002AEAAE /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8CA4C87A1CC13C21002AEAAE /* TwitterKitResources.bundle */; };
 		8CA4C87F1CC13C22002AEAAE /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA4C87B1CC13C21002AEAAE /* TwitterCore.framework */; };
+		8CA970741CD5E47F00CA361A /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA970731CD5E47F00CA361A /* AccountViewController.swift */; };
 		8CC80F571CCEC9AB00BAC11F /* FacebookServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC80F561CCEC9AB00BAC11F /* FacebookServices.swift */; };
 		8CC80F5B1CCED29C00BAC11F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC80F581CCED29C00BAC11F /* FBSDKCoreKit.framework */; };
 		8CC80F5C1CCED29C00BAC11F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC80F591CCED29C00BAC11F /* FBSDKLoginKit.framework */; };
@@ -141,6 +143,7 @@
 		8C672C591CD536F500E0787F /* TwitterPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterPost.swift; sourceTree = "<group>"; };
 		8C672C5B1CD53D2100E0787F /* PostStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostStore.swift; sourceTree = "<group>"; };
 		8C672C5D1CD53D2E00E0787F /* FriendStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendStore.swift; sourceTree = "<group>"; };
+		8C672C711CD5E23300E0787F /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		8CA4C8321CB9AD22002AEAAE /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8CA4C84E1CC01B5D002AEAAE /* InstagramServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramServices.swift; sourceTree = "<group>"; };
 		8CA4C8501CC01F0F002AEAAE /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
@@ -150,6 +153,7 @@
 		8CA4C8791CC13C21002AEAAE /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		8CA4C87A1CC13C21002AEAAE /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		8CA4C87B1CC13C21002AEAAE /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		8CA970731CD5E47F00CA361A /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		8CC80F561CCEC9AB00BAC11F /* FacebookServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookServices.swift; sourceTree = "<group>"; };
 		8CC80F581CCED29C00BAC11F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../Documents/FacebookSDK/FacebookSDKs-iOS-20160412/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		8CC80F591CCED29C00BAC11F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../Documents/FacebookSDK/FacebookSDKs-iOS-20160412/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 				8CA4C8501CC01F0F002AEAAE /* Friend.swift */,
 				8C672C5B1CD53D2100E0787F /* PostStore.swift */,
 				8C672C5D1CD53D2E00E0787F /* FriendStore.swift */,
+				8C672C711CD5E23300E0787F /* FriendCell.swift */,
 				8C672C591CD536F500E0787F /* TwitterPost.swift */,
 				8C672C4B1CD536DE00E0787F /* InstagramPost.swift */,
 				8CA4C8521CC0228A002AEAAE /* TwitterServices.swift */,
@@ -294,6 +299,7 @@
 				8CD17CA61C41C807004402FC /* AppDelegate.swift */,
 				8CD17CA81C41C807004402FC /* HomeViewController.swift */,
 				8CD17CAA1C41C807004402FC /* ProfileViewController.swift */,
+				8CA970731CD5E47F00CA361A /* AccountViewController.swift */,
 				8CD17CAC1C41C807004402FC /* Main.storyboard */,
 				8CD17CB11C41C807004402FC /* LaunchScreen.storyboard */,
 				8CD17CAF1C41C807004402FC /* Assets.xcassets */,
@@ -616,6 +622,7 @@
 			files = (
 				8CA4C84F1CC01B5D002AEAAE /* InstagramServices.swift in Sources */,
 				8C672C5E1CD53D2E00E0787F /* FriendStore.swift in Sources */,
+				8CA970741CD5E47F00CA361A /* AccountViewController.swift in Sources */,
 				8C672C5A1CD536F500E0787F /* TwitterPost.swift in Sources */,
 				8CA4C8531CC0228A002AEAAE /* TwitterServices.swift in Sources */,
 				8CD17CAB1C41C807004402FC /* ProfileViewController.swift in Sources */,
@@ -625,6 +632,7 @@
 				8C672C5C1CD53D2100E0787F /* PostStore.swift in Sources */,
 				8CD17CA91C41C807004402FC /* HomeViewController.swift in Sources */,
 				8CA4C8331CB9AD22002AEAAE /* Post.swift in Sources */,
+				8C672C721CD5E23300E0787F /* FriendCell.swift in Sources */,
 				8CC80F571CCEC9AB00BAC11F /* FacebookServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
