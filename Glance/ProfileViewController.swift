@@ -9,7 +9,7 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    
     let twitterService = TwitterServices()
     let instagramService = InstagramServices()
     let facebookService = FacebookServices()
@@ -28,6 +28,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "callGetRelevantPosts:", name: "getBestFriendsCompleteCallGetRelevantPosts", object: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -39,6 +40,11 @@ class ProfileViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func callGetRelevantPosts(notif: NSNotification) {
+        print("callGetRelevantPosts was handled")
+        instagramService.getRelevantPosts()
     }
     
     func updateAccountButtonStatus() {
@@ -73,8 +79,12 @@ class ProfileViewController: UIViewController {
             self.instagramService.oauthInstagram(self)
             updateInstagramAccountButtonStatus()
         } else {
-            self.instagramService.getBestFriends()
-            self.instagramService.getRelevantPosts()
+            if (instagramService.bestFriends.isEmpty) {
+                instagramService.loadBestFriendsFromDB()
+                instagramService.getBestFriends()
+            } else {
+                instagramService.loadBestFriendsFromDB()
+            }
             //Send user to account management page for Instagram
             performSegueWithIdentifier("AccountManagementSegue", sender: self)
         }

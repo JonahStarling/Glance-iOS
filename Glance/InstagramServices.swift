@@ -100,7 +100,7 @@ class InstagramServices {
     }
     
     func getRelevantPosts() {
-        loadBestFriendsFromDB()
+        print(bestFriends)
         for bestFriend in bestFriends {
             var todoEndpoint: String = "https://api.instagram.com/v1/users/"
             todoEndpoint += bestFriend.getUserId()
@@ -139,6 +139,7 @@ class InstagramServices {
                         PostStore.sharedInstance.addPost(newPost)
                     }
                 }
+                NSNotificationCenter.defaultCenter().postNotificationName("postsLoaded", object: nil)
             }
             task.resume()
         }
@@ -162,6 +163,7 @@ class InstagramServices {
             }
             // TODO: Send bestFriends array to the adapter to load into the Account Management View
             self.bestFriends = bestFriends
+            NSNotificationCenter.defaultCenter().postNotificationName("getBestFriendsCompleteCallGetRelevantPosts", object: nil)
         })
     }
     
