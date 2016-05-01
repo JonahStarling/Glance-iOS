@@ -33,7 +33,7 @@ class Friend {
             self.userName = userName
         }
         self.userId = userId
-        self.userHandle = userHandle
+        self.userHandle = "@"+userHandle
         self.userPic = userPic
     }
     

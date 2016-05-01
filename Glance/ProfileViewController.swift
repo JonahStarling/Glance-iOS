@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class ProfileViewController: UIViewController {
 
@@ -29,12 +28,12 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateAccountButtonStatus()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        updateAccountButtonStatus()
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,6 +53,7 @@ class ProfileViewController: UIViewController {
             self.twitterService.oauthTwitter()
             updateTwitterAccountButtonStatus()
         } else {
+            self.twitterService.getBestFriends()
             //Send user to account management page for Twitter
             performSegueWithIdentifier("AccountManagementSegue", sender: self)
         }

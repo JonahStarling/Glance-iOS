@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3D118F7A730B8E7C297DFBAB /* Pods_Glance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE5AF41F4FB1FA805BAB6BC /* Pods_Glance.framework */; };
+		8C672C4C1CD536DE00E0787F /* InstagramPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C672C4B1CD536DE00E0787F /* InstagramPost.swift */; };
+		8C672C5A1CD536F500E0787F /* TwitterPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C672C591CD536F500E0787F /* TwitterPost.swift */; };
+		8C672C5C1CD53D2100E0787F /* PostStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C672C5B1CD53D2100E0787F /* PostStore.swift */; };
+		8C672C5E1CD53D2E00E0787F /* FriendStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C672C5D1CD53D2E00E0787F /* FriendStore.swift */; };
 		8CA4C8331CB9AD22002AEAAE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA4C8321CB9AD22002AEAAE /* Post.swift */; };
 		8CA4C84F1CC01B5D002AEAAE /* InstagramServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA4C84E1CC01B5D002AEAAE /* InstagramServices.swift */; };
 		8CA4C8511CC01F0F002AEAAE /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA4C8501CC01F0F002AEAAE /* Friend.swift */; };
@@ -133,6 +137,10 @@
 
 /* Begin PBXFileReference section */
 		5018EF233B23A7D447537AFA /* Pods-Glance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Glance/Pods-Glance.release.xcconfig"; sourceTree = "<group>"; };
+		8C672C4B1CD536DE00E0787F /* InstagramPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramPost.swift; sourceTree = "<group>"; };
+		8C672C591CD536F500E0787F /* TwitterPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterPost.swift; sourceTree = "<group>"; };
+		8C672C5B1CD53D2100E0787F /* PostStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostStore.swift; sourceTree = "<group>"; };
+		8C672C5D1CD53D2E00E0787F /* FriendStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendStore.swift; sourceTree = "<group>"; };
 		8CA4C8321CB9AD22002AEAAE /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8CA4C84E1CC01B5D002AEAAE /* InstagramServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramServices.swift; sourceTree = "<group>"; };
 		8CA4C8501CC01F0F002AEAAE /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
@@ -276,6 +284,10 @@
 			children = (
 				8CA4C8321CB9AD22002AEAAE /* Post.swift */,
 				8CA4C8501CC01F0F002AEAAE /* Friend.swift */,
+				8C672C5B1CD53D2100E0787F /* PostStore.swift */,
+				8C672C5D1CD53D2E00E0787F /* FriendStore.swift */,
+				8C672C591CD536F500E0787F /* TwitterPost.swift */,
+				8C672C4B1CD536DE00E0787F /* InstagramPost.swift */,
 				8CA4C8521CC0228A002AEAAE /* TwitterServices.swift */,
 				8CA4C84E1CC01B5D002AEAAE /* InstagramServices.swift */,
 				8CC80F561CCEC9AB00BAC11F /* FacebookServices.swift */,
@@ -603,10 +615,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CA4C84F1CC01B5D002AEAAE /* InstagramServices.swift in Sources */,
+				8C672C5E1CD53D2E00E0787F /* FriendStore.swift in Sources */,
+				8C672C5A1CD536F500E0787F /* TwitterPost.swift in Sources */,
 				8CA4C8531CC0228A002AEAAE /* TwitterServices.swift in Sources */,
 				8CD17CAB1C41C807004402FC /* ProfileViewController.swift in Sources */,
 				8CD17CA71C41C807004402FC /* AppDelegate.swift in Sources */,
+				8C672C4C1CD536DE00E0787F /* InstagramPost.swift in Sources */,
 				8CA4C8511CC01F0F002AEAAE /* Friend.swift in Sources */,
+				8C672C5C1CD53D2100E0787F /* PostStore.swift in Sources */,
 				8CD17CA91C41C807004402FC /* HomeViewController.swift in Sources */,
 				8CA4C8331CB9AD22002AEAAE /* Post.swift in Sources */,
 				8CC80F571CCEC9AB00BAC11F /* FacebookServices.swift in Sources */,

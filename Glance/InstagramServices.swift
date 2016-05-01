@@ -18,9 +18,22 @@ class InstagramServices {
     var bestFriends: [Friend]
     
     init() {
-        self.accessToken = ""
-        self.userId = ""
-        self.userName = ""
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.stringForKey("instagramUserId") != nil {
+            self.userId = defaults.stringForKey("instagramUserId")!
+        } else {
+            self.userId = ""
+        }
+        if defaults.stringForKey("instagramUserName") != nil {
+            self.userName = defaults.stringForKey("instagramUserName")!
+        } else {
+            self.userName = ""
+        }
+        if defaults.stringForKey("instagramOAuthToken") != nil {
+            self.accessToken = defaults.stringForKey("instagramOAuthToken")!
+        } else {
+            self.accessToken = ""
+        }
         self.bestFriends = []
     }
     
@@ -112,7 +125,20 @@ class InstagramServices {
                 }
                 // parse the result as JSON, since that's what the API provides
                 let json = JSON(data: responseData)
-                print(json)
+                if let posts = json["data"].array {
+                    for post in posts {
+                        let postType = "Instagram"
+                        let userName = post["user"]["full_name"].stringValue
+                        let userHandle = post["user"]["username"].stringValue
+                        let postTime = post["created_time"].stringValue
+                        let userPic = post["user"]["profile_picture"].stringValue
+                        let postText = post["caption"]["text"].stringValue
+                        let postPic = post["images"]["standard_resolution"]["url"].stringValue
+                        let link = post["link"].stringValue
+                        let newPost = Post(postType: postType, userName: userName, userHandle: userHandle, postTime: postTime, userPic: userPic, postText: postText, postPic: postPic, link: link)
+                        PostStore.sharedInstance.addPost(newPost)
+                    }
+                }
             }
             task.resume()
         }
@@ -140,9 +166,14 @@ class InstagramServices {
     }
     
     func saveBestFriendsToDB(bestFriends: [[String : String]]) {
-        for bestFriend in bestFriends {
-            let ref = Firebase(url: "https://theglance.firebaseio.com/bestfriendsinstagram/"+self.userId)
-            ref.childByAppendingPath(bestFriend["bestFriendId"]).setValue(bestFriend)
+        if (self.userId != "") {
+            for bestFriend in bestFriends {
+                let urlPath = "https://theglance.firebaseio.com/bestfriendsinstagram/"+self.userId
+                let ref = Firebase(url: urlPath)
+                ref.childByAppendingPath(bestFriend["bestFriendId"]).setValue(bestFriend)
+            }
+        } else {
+            print("USER ID NOT FOUND")
         }
     }
     
@@ -179,10 +210,14 @@ class InstagramServices {
     
     func instagramAccountNotConnected() -> Bool {
         let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.stringForKey("instagramUserId") != nil {
+            self.userId = defaults.stringForKey("instagramUserId")!
+        }
+        if defaults.stringForKey("instagramUserName") != nil {
+            self.userName = defaults.stringForKey("instagramUserName")!
+        }
         if defaults.stringForKey("instagramOAuthToken") != nil {
             self.accessToken = defaults.stringForKey("instagramOAuthToken")!
-            self.userId = defaults.stringForKey("instagramUserId")!
-            self.userName = defaults.stringForKey("instagramUserName")!
             return false
         }
         return true
