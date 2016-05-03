@@ -147,26 +147,30 @@ class InstagramServices {
     
     func loadBestFriendsFromDB() {
         var bestFriends: [Friend] = []
-        let ref = Firebase(url: "https://theglance.firebaseio.com/bestfriendsinstagram/"+self.userId)
-        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            if snapshot.value is NSNull {
-                print("Instagram Call Load Best Friends From DB returned nothing!")
-            } else {
-                let enumerator = snapshot.children
-                while let friend = enumerator.nextObject() as? FDataSnapshot {
-                    let userName = friend.value["bestFriendName"] as? String
-                    let userId = friend.value["bestFriendId"] as? String
-                    let userHandle = friend.value["bestFriendHandle"] as? String
-                    let userPic = friend.value["bestFriendProfilePicture"] as? String
-                    bestFriends.append(Friend(friendType: "Instagram", userName: userName!, userId: userId!, userHandle: userHandle!, userPic: userPic!))
+        if (self.userId != "") {
+            let ref = Firebase(url: "https://theglance.firebaseio.com/bestfriendsinstagram/"+self.userId)
+            ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                if snapshot.value is NSNull {
+                    print("Instagram Call Load Best Friends From DB returned nothing!")
+                } else {
+                    let enumerator = snapshot.children
+                    while let friend = enumerator.nextObject() as? FDataSnapshot {
+                        let userName = friend.value["bestFriendName"] as? String
+                        let userId = friend.value["bestFriendId"] as? String
+                        let userHandle = friend.value["bestFriendHandle"] as? String
+                        let userPic = friend.value["bestFriendProfilePicture"] as? String
+                        bestFriends.append(Friend(friendType: "Instagram", userName: userName!, userId: userId!, userHandle: userHandle!, userPic: userPic!))
+                    }
                 }
-            }
-            // TODO: Send bestFriends array to the adapter to load into the Account Management View
-            self.bestFriends = bestFriends
-            FriendStore.sharedInstance.replaceAllFriends(bestFriends)
-            NSNotificationCenter.defaultCenter().postNotificationName("getBestFriendsCompleteCallGetRelevantPosts", object: nil)
-            NSNotificationCenter.defaultCenter().postNotificationName("friendsLoaded", object: nil)
-        })
+                // TODO: Send bestFriends array to the adapter to load into the Account Management View
+                self.bestFriends = bestFriends
+                FriendStore.sharedInstance.replaceAllFriends(bestFriends)
+                NSNotificationCenter.defaultCenter().postNotificationName("getBestFriendsCompleteCallGetRelevantPosts", object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("friendsLoaded", object: nil)
+            })
+        } else {
+            getBestFriends()
+        }
     }
     
     func saveBestFriendsToDB(bestFriends: [[String : String]]) {

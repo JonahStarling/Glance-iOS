@@ -39,8 +39,8 @@ class Post {
             self.userName = userName
         }
         self.userHandle = "@"+userHandle
-        //self.postTime = postTime
-        self.postTime = "152w"
+        let time = NSDate(timeIntervalSince1970:Double(postTime)!)
+        self.postTime = time.description
         self.userPic = userPic
         self.postText = postText
         self.postPic = postPic

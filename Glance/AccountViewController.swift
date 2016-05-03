@@ -55,7 +55,6 @@ class AccountViewController: UITableViewController {
     }
     
     func friendsLoadedNotification(notif: NSNotification) {
-        print("friendsLoadedNotification was handled")
         self.tableView.reloadData()
     }
 }
